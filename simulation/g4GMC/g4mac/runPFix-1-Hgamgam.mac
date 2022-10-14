@@ -1,0 +1,40 @@
+# Macro file for example B2
+# 
+# Can be run in batch, without graphic
+# or interactively: Idle> /control/execute run1.mac
+#
+# Change the default number of workers (in multi-threading mode) 
+#/run/numberOfWorkers 4
+# set seeds
+/random/setSeeds 575841909 838392975 
+#
+# Initialize kernel
+/run/initialize
+#
+
+/generator/select hepmcAscii
+/generator/hepmcAscii/open /its/home/iv41/scratch/PythiaOutput/hep/hep/Hgamgam_0.hep
+/generator/hepmcAscii/verbose 1
+
+
+# Magnetic Field
+/field/update
+#/field/setStepperType 4
+#/field/setMinStep 0.1 mm  
+/field/setFieldZ 2.0 tesla
+#/field/setField 0.0 0.0 1.0 kG 
+
+#
+#/tracking/verbose 1
+#/run/beamOn 5
+#
+# 1 event with printing hits
+#
+/vis/modeling/trajectories/create/generic
+#
+/tracking/verbose 0
+#/tracking/verbose 1
+/hits/verbose 0
+#/hits/verbose 2
+#/run/beamOn 100
+/run/beamOn 100
